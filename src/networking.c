@@ -581,7 +581,7 @@ void acceptTcpHandler(aeEventLoop *el, int fd, void *privdata, int mask) {
                     "Accepting client connection: %s", server.neterr);
             return;
         }
-        redisLog(REDIS_NOTICE,"Accepted %s:%d", cip, cport);
+        redisLog(REDIS_NOTICE,"Accepted %s:%d (fd=%d)", cip, cport, cfd);
         acceptCommonHandler(cfd,0);
     }
 }
@@ -831,8 +831,8 @@ void sendReplyToClient(aeEventLoop *el, int fd, void *privdata, int mask) {
         if (errno == EAGAIN) {
             nwritten = 0;
         } else {
-            redisLog(REDIS_VERBOSE,
-                "Error writing to client: %s", strerror(errno));
+            redisLog(REDIS_NOTICE,
+                "Error writing to client: %s (fd=%d)", strerror(errno), fd);
             freeClient(c);
             return;
         }
@@ -1145,12 +1145,12 @@ void readQueryFromClient(aeEventLoop *el, int fd, void *privdata, int mask) {
         if (errno == EAGAIN) {
             nread = 0;
         } else {
-            redisLog(REDIS_VERBOSE, "Reading from client: %s",strerror(errno));
+            redisLog(REDIS_NOTICE, "Reading from client: %s (fd=%d)", strerror(errno), fd);
             freeClient(c);
             return;
         }
     } else if (nread == 0) {
-        redisLog(REDIS_VERBOSE, "Client closed connection");
+        redisLog(REDIS_NOTICE, "Client closed connection: (fd=%d)", fd);
         freeClient(c);
         return;
     }
