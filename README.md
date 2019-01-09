@@ -27,40 +27,40 @@ redis-cli backup dir(备份文件目录)
 
 ### Redis命令支持状况(yes: 支持; no: 不支持), 当redis使用leveldb引擎时，命令支持状况(yes: 支持; no: 不支持)
 
-| Key         |  RedisLV      | Redis        |
+| Key         |  RedisLV       | Redis        |
 |-------------|----------------| -------------|
 | DEL         |       yes      |      yes     |
 | DUMP        |       yes      |      yes     |
 | EXISTS      |       yes      |      yes     |
-| EXPIRE      |       no       |      yes     |
-| EXPIREAT    |       no       |      yes     |
+| EXPIRE      |       `no`     |      yes     |
+| EXPIREAT    |       `no`     |      yes     |
 | KEYS        |       yes      |      yes     |
-| MIGRATE     |       no       |      yes     |
-| MOVE        |       no       |      yes     |
+| MIGRATE     |       `no`     |      yes     |
+| MOVE        |       `no`     |      yes     |
 | OBJECT      |       yes      |      yes     |
-| PERSIST     |       no       |      yes     |
-| PEXPIRE     |       no       |      yes     |
-| PEXPIREAT   |       no       |      yes     |
-| PTTL        |       no       |      yes     |
+| PERSIST     |       `no`     |      yes     |
+| PEXPIRE     |       `no`     |      yes     |
+| PEXPIREAT   |       `no`     |      yes     |
+| PTTL        |       `no`     |      yes     |
 | RANDOMKEY   |       yes      |      yes     |
-| RENAME      |       no       |      yes     |
-| RENAMENX    |       no       |      yes     |
-| RESTORE     |       no       |      yes     |
-| SORT        |  yes(not store)|      yes     |
-| TTL         |       no       |      yes     |
+| RENAME      |       `no`     |      yes     |
+| RENAMENX    |       `no`     |      yes     |
+| RESTORE     |       `no`     |      yes     |
+| SORT        |`yes(not store)`|      yes     |
+| TTL         |       `no`     |      yes     |
 | TYPE        |       yes      |      yes     |
 | SCAN        |       yes      |      yes     |
 
 ---
 
-| String      | RedisLV | Redis |
+| String      | RedisLV        | Redis        |
 |-------------|----------------|--------------|
 | APPEND      |       yes      |      yes     |
 | BITCOUNT    |       yes      |      yes     |
 | BITOP       |       yes      |      yes     |
 | DECR        |       yes      |      yes     |
 | DECRBY      |       yes      |      yes     |
-| GET	      |       yes      |      yes     |
+| GET	        |       yes      |      yes     |
 | GETBIT      |       yes      |      yes     |
 | GETRANGE    |       yes      |      yes     |
 | GETSET      |       yes      |      yes     |
@@ -70,17 +70,17 @@ redis-cli backup dir(备份文件目录)
 | MGET        |       yes      |      yes     |
 | MSET        |       yes      |      yes     |
 | MSETNX      |       yes      |      yes     |
-| PSETEX      |       no       |      yes     |
+| PSETEX      |       `no`     |      yes     |
 | SET         |       yes      |      yes     |
 | SETBIT      |       yes      |      yes     |
-| SETEX       |       no       |      yes     |
+| SETEX       |       `no`     |      yes     |
 | SETNX       |       yes      |      yes     |
 | SETRANGE    |       yes      |      yes     |
 | STRLEN      |       yes      |      yes     |
 
 ---
 
-| Hash        | RedisLV | Redis |
+| Hash        | RedisLV        | Redis        |
 |-------------|----------------|--------------|
 | HDEL        |       yes      |      yes     | 
 | HEXISTS     |       yes      |      yes     |
@@ -99,27 +99,27 @@ redis-cli backup dir(备份文件目录)
 
 ---
 
-| Set         |   RedisLV | Redis |
+| Set         |   RedisLV      | Redis        |
 |-------------|----------------|--------------|
 | SADD        |       yes      |      yes     |
 | SCARD       |       yes      |      yes     |
 | SDIFF       |       yes      |      yes     |
-| SDIFFSTORE  |       no       |      yes     |
+| SDIFFSTORE  |       `no`     |      yes     |
 | SINTER      |       yes      |      yes     |
-| SINTERSTORE |       no       |      yes     |
+| SINTERSTORE |       `no`     |      yes     |
 | SISMEMBERS  |       yes      |      yes     |
 | SMEMBERS    |       yes      |      yes     |
-| SMOVE       |       no       |      yes     |
-| SPOP        |       no       |      yes     |
+| SMOVE       |       `no`     |      yes     |
+| SPOP        |       `no`     |      yes     |
 | SRANDMEMBER |       yes      |      yes     |
 | SREM        |       yes      |      yes     |
 | SUNION      |       yes      |      yes     |
-| SUNIONSTORE |       no       |      yes     |
+| SUNIONSTORE |       `no`     |      yes     |
 | SSCAN       |       yes      |      yes     |
 
 ---
 
-| SortedSet       | RedisLV | Redis |
+| SortedSet       | RedisLV      | Redis        |
 |-----------------|--------------|--------------|
 | ZADD            |       yes    |      yes     |
 | ZCARD           |       yes    |      yes     |
@@ -135,8 +135,8 @@ redis-cli backup dir(备份文件目录)
 | ZREVRANKBYSCORE |       yes    |      yes     |
 | ZREVRANK        |       yes    |      yes     |
 | ZSCORE          |       yes    |      yes     |
-| ZUNIONSTORE     |       no     |      yes     |
-| ZINTERSTORE     |       no     |      yes     |
+| ZUNIONSTORE     |       `no`   |      yes     |
+| ZINTERSTORE     |       `no`   |      yes     |
 | ZSCAN           |       yes    |      yes     |
 | ZRANGEBYLEX     |       yes    |      yes     |
 | ZLEXCOUNT       |       yes    |      yes     |
