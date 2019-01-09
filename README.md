@@ -32,7 +32,10 @@ redis-cli backup dir(备份文件目录)
 ```
 * 当备份目录中包含BACKUP.log文件并且文件中有**SUCCESS**字段，表示备份成功
 ---
-### RedisLV(配置leveldb选项)命令支持状况(yes: 支持; no: 不支持), Redis命令支持状况(yes: 支持; no: 不支持)
+### RedisLV(配置leveldb选项)与Redis对比
+
+1. 命令支持状况(yes: 支持; no: 不支持)
+
 
 | Key         |  RedisLV       | Redis        |
 |-------------|----------------| -------------|
