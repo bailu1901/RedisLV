@@ -1,16 +1,23 @@
-[RedisLV-支持基于LevelDB的Redis持久化方法](https://github.com/ivanabc/RedisLV)
+[RedisLV-支持基于LevelDB的Redis(2.8.19)持久化方法](https://github.com/ivanabc/RedisLV)
 ---
 
-### Redis持久化的问题
+### Redis 持久化的问题
 1. RDB方式: 数据持久化的过程中可能存在大量额外内存消耗。
 2. AOF方式: 通过aof文件恢复数据库的过程慢。
 
-### RedisLV优点
+### RedisLV 优点
 1. 对于内存有限的服务，数据持久化不会带来额外的内存消耗。
 2. 相对AOF方式，数据库的恢复更快。
 
-### RedisLV缺点
+### RedisLV 缺点
 1. 由于对redis写入操作需要同步到leveldb，导致性能损耗(读操作不受影响)。
+
+### RedisLV 配置(redis.conf)
+~~~
+# leveldb 
+leveldb yes
+leveldb-path ./var 
+~~~
 
 ### RedisLV备份
 ```
@@ -20,7 +27,7 @@ redis-cli backup dir(备份文件目录)
 
 ### Redis命令支持状况(yes: 支持; no: 不支持), 当redis使用leveldb引擎时，命令支持状况(yes: 支持; no: 不支持)
 
-| Key         |  redis_in_ldb  | redis_no_ldb |
+| Key         |  RedisLV      | Redis        |
 |-------------|----------------| -------------|
 | DEL         |       yes      |      yes     |
 | DUMP        |       yes      |      yes     |
@@ -46,7 +53,7 @@ redis-cli backup dir(备份文件目录)
 
 ---
 
-| String      |  redis_in_ldb  | redis_no_ldb |
+| String      | RedisLV | Redis |
 |-------------|----------------|--------------|
 | APPEND      |       yes      |      yes     |
 | BITCOUNT    |       yes      |      yes     |
@@ -73,7 +80,7 @@ redis-cli backup dir(备份文件目录)
 
 ---
 
-| Hash        |   redis_in_ldb | redis_no_ldb |
+| Hash        | RedisLV | Redis |
 |-------------|----------------|--------------|
 | HDEL        |       yes      |      yes     | 
 | HEXISTS     |       yes      |      yes     |
@@ -92,7 +99,7 @@ redis-cli backup dir(备份文件目录)
 
 ---
 
-| Set         |   redis_in_ldb | redis_no_ldb |
+| Set         |   RedisLV | Redis |
 |-------------|----------------|--------------|
 | SADD        |       yes      |      yes     |
 | SCARD       |       yes      |      yes     |
@@ -112,7 +119,7 @@ redis-cli backup dir(备份文件目录)
 
 ---
 
-| SortedSet       | redis_in_ldb | redis_no_ldb |
+| SortedSet       | RedisLV | Redis |
 |-----------------|--------------|--------------|
 | ZADD            |       yes    |      yes     |
 | ZCARD           |       yes    |      yes     |
