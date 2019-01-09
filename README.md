@@ -5,27 +5,33 @@
 1. RDB方式: 数据持久化的过程中可能存在大量额外内存消耗。
 2. AOF方式: 通过aof文件恢复数据库的过程慢。
 
-### RedisLV 优点
+### RedisLV 
+
+#### 优点
 1. 对于内存有限的服务，数据持久化不会带来额外的内存消耗。
 2. 相对AOF方式，数据库的恢复更快。
 
-### RedisLV 缺点
+#### 缺点
+
 1. 由于对redis写入操作需要同步到leveldb，导致性能损耗(读操作不受影响)。
 
-### RedisLV 配置(redis.conf)
+#### 安装
+* 阅读 [README](README)
+
+#### 配置(redis.conf)
 ~~~
 # leveldb 
 leveldb yes
 leveldb-path ./var 
 ~~~
 
-### RedisLV备份
+#### 备份
 ```
 redis-cli backup dir(备份文件目录)
 ```
-* 当备份目录中包含BACKUP.log文件并且文件中有SUCCESS字段，表示备份成功
+* 当备份目录中包含BACKUP.log文件并且文件中有**SUCCESS**字段，表示备份成功
 
-### Redis命令支持状况(yes: 支持; no: 不支持), 当redis使用leveldb引擎时，命令支持状况(yes: 支持; no: 不支持)
+### RedisLV(配置leveldb选项)命令支持状况(yes: 支持; no: 不支持), Redis命令支持状况(yes: 支持; no: 不支持)
 
 | Key         |  RedisLV       | Redis        |
 |-------------|----------------| -------------|
