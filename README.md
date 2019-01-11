@@ -31,6 +31,10 @@ leveldb-path ./var
 redis-cli backup dir(备份文件目录)
 ```
 * 当备份目录中包含BACKUP.log文件并且文件中有**SUCCESS**字段，表示备份成功
+
+#### 注意事项
+1. RedisLV中key的最大长度为 **127**；
+
 ---
 ### RedisLV(配置leveldb选项)与Redis对比
 
