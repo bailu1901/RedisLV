@@ -38,7 +38,7 @@ redis-cli backup dir(备份文件目录)
 ---
 ### RedisLV(配置leveldb选项)与Redis对比
 
-1. 命令支持状况(yes: 支持; no: 不支持)
+1. 命令支持状况(yes: 支持; no: 不支持)。`在RedisLV中使用不支持的命令将导致数据不能正确落地`
 
 
 | Key         |  RedisLV       | Redis        |
